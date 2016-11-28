@@ -32,6 +32,25 @@ public class HomeController extends Controller {
         return ok(products.render(productsList));
     }
 
+    private FormFactory formFactory;
+
+    @Inject
+    public HomeController(FormFactory f) {
+        this.formFactory = f;
+    }
+
+
+
+
+    public Result addProduct(){
+        Form<Product> addProductForm = formFactory.form(Product.class);
+        return ok(addProduct.render());
+        return ok(addProduct.render(addProductForm));
+
+    }
+
+
+
 }
 
 
